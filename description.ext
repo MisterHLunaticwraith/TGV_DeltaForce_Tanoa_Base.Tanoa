@@ -1,0 +1,54 @@
+allowFunctionsRecompile = 1;
+respawnOnStart = -1;
+
+
+// =============CFG======================================================
+
+/////=========cfgNotifications=====
+class cfgNotifications
+{
+#include"cfghpp\cfgnotifications.hpp"
+};
+////=============fincfgNotifications
+
+/////=========cfgParams============
+class Params
+{
+#include "cfghpp\cfgparams.hpp"
+};
+////=============fincfgParams======
+
+/////=========cfgDebriefings=======
+class CfgDebriefing
+{
+#include "cfghpp\cfgdebriefing.hpp"
+};
+////=============fincfgDebriefings=
+
+/////=========cfgFunctions========
+class CfgFunctions
+{
+	#include "cfghpp\cfgfunctions.hpp"
+};
+////=============fincfgFunctions
+
+/////=========cfgSounds==========
+class CfgSounds
+{
+	#include "cfghpp\cfgsounds.hpp"
+};
+////=============fincfgSounds=====
+
+class Extended_PostInit_EventHandlers
+{
+
+   class TGV_DEVGRU_CBA_Settings_keybinds
+   {
+      init = "call compile preProcessFileLineNumbers 'MissionFunc\CBAKeys.sqf'";
+   };    
+	   
+};
+
+#include "cfgMRHTargets.hpp"
+#include "interfaces\choosedeathscheme.hpp"
+disableChannels[] = {0,1,2,4,5};
