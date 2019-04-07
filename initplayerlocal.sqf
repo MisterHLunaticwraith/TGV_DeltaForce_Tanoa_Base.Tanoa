@@ -81,16 +81,7 @@ if (inputAction "showMap" >0) then
 
 [] execVM "MHQ_funcs.sqf";
 
-MRH_player = player;
-addMissionEventHandler ["PlayerViewChanged", {
-	params [
-		"_oldUnit", "_newUnit", "_vehicle",
-		"_oldCamera", "_newCamera", "_uav"
-	];
-	if (_newCamera == player) exitWith {MRH_player = player};
-	if (_newCamera isKindOf "Man") exitWith {MRH_player = _newCamera};
-	if !(_newCamera isKindOf "Man") exitWith {MRH_player = leader group _newCamera};
-}];
+
 //sleep 10;
 [player,_data]call MRH_fnc_MilsimTools_SoldierTab_attributeData;
 [player,_pics]call MRH_fnc_MilsimTools_SoldierTab_attributePictures;

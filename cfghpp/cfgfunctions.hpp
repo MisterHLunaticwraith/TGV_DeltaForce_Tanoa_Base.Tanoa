@@ -88,6 +88,8 @@ class MRH // Defines the "owner"
 		{};
 		class fasttravelmap
 		{};
+		class isClothesArsenal
+		{};
 	
 	};
 	
