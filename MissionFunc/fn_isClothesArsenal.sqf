@@ -2,6 +2,8 @@
 crée un arsenal virtuel qui n'ajoute que les vêtements autorisés
 [this] call MRH_fnc_isClothesArsenal;
 */
+_func = {
+
 params ["_box"];
 _itemsArray = 
 [
@@ -22,6 +24,9 @@ _itemsArray =
 	"LOP_U_PMC_Fatigue_03", // combat uniform pmc 03
 	"LOP_U_PMC_Fatigue_01", // combat uniform pmc 03
 	"LOP_U_PMC_Fatigue_04", // combat uniform pmc 03
+	"LOP_U_PMC_tac_tacky",
+	"LOP_U_PMC_tac_floral",
+	"LOP_U_PMC_tac_prp_palm",
 	//headgear
 	"rhsusf_opscore_fg_pelt_nsw", // FAST Ballistic (Foliage Green/ headset/NSW)
 	"H_Watchcap_blk", //beanie
@@ -34,6 +39,7 @@ _itemsArray =
 	"H_Cap_tan_specops_US", // cap (US MTP) 
 	"H_MilCap_gry", //Militarycap grey
 	"rhsusf_bowman_cap", //Bowman Elite II (cap)
+	"rhsgref_bcap_specter",
 	//vests 
 	"V_PlateCarrier1_blk", //carrier Lite black
 	"V_PlateCarrier2_blk", // carrier Rig (Black)
@@ -41,6 +47,9 @@ _itemsArray =
 	"LOP_V_CarrierLite_BLK", // PO GA Carrier Lite (black)
 	"V_TacVest_oli", //TacticalVest Olive
 	"LOP_V_CarrierLite_OLV", // PO GA Carrier Lite (olive)
+	"rhsgref_otv_khaki",
+	"rhsgref_TacVest_ERDL",
+	"rhsgref_alice_webbing",
 	//Facewear
 	"G_Balaclava_blk", //Balaclava (Black)
 	"G_Bandanna_aviator", //Bandana Aviator
@@ -56,5 +65,16 @@ _itemsArray =
 	"rhs_balaclava", //Balaclava
 	"rhs_balaclava1_olive" //Balaclava (olive)
 ];
+/*
+{
+	_itemsArray pushBackUnique _x
+}forEach ACE_ArsenalAllowedItems;
+*/
 
 [_box,_itemsArray] call ace_arsenal_fnc_initBox;
+};
+[
+    {true},//{!isNil "ACE_ArsenalAllowedItems"}, 
+    _func, 
+    _this
+] call CBA_fnc_waitUntilAndExecute;

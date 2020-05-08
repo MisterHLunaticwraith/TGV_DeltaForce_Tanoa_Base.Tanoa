@@ -7,7 +7,7 @@ _MRH_Zeus_logicSide = createCenter sideLogic;
 missionNamespace setVariable ["TGV_Zeus_SideLogic",_MRH_Zeus_logicSide,true];
 _MRH_Zeus_logicGrp = createGroup _MRH_Zeus_logicSide;
 missionNamespace setVariable ["TGV_Zeus_logicGrp",_MRH_Zeus_logicGrp,true];
-;
+
 
 
 _MRH_Zeus_Module = _MRH_Zeus_logicGrp createUnit ["ModuleCurator_F",[0,0,0] , [], 0, ""];
@@ -33,6 +33,7 @@ missionNamespace setVariable ["TGV_Admin_Zeus_Module",_Admin_Zeus_Module,true];
 _ADMIN_Zeus_Module setVehicleVarName "TGV_Admin_Zeus_Module";
 _ADMIN_Zeus_Module call BIS_fnc_objectVar;
 
+/*
 _PLAYERSLOT_Zeus_Module = _MRH_Zeus_logicGrp createUnit ["ModuleCurator_F",[2,0,0] , [], 0, ""];
 _PLAYERSLOT_Zeus_Module setVariable ["showNotification", false, true];
 _PLAYERSLOT_Zeus_Module setVariable ["birdType", "", true];
@@ -54,7 +55,7 @@ _PLAYERSLOT2_Zeus_Module setVariable ["name", "Zeus joueur 2", true];
 missionNamespace setVariable ["TGV_Player_Zeus_Module_2",_PLAYERSLOT2_Zeus_Module,true];
 _PLAYERSLOT2_Zeus_Module setVehicleVarName "TGV_Player_Zeus_Module_2";
 _PLAYERSLOT2_Zeus_Module call BIS_fnc_objectVar;
-
+*/
 {
 
 _x addCuratorEditableObjects [(allMissionObjects "All"),true];

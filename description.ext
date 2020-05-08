@@ -1,7 +1,26 @@
 allowFunctionsRecompile = 1;
 respawnOnStart = -1;
+#include "TGV_macros_def.hpp"
+class cfgTGVmissions
+{
 
+	//Ne pas changer
+	class FrameWorkVersion
+	{
+		versionStr = "2.0.0";
+		versionAr[] = {2,0,0};
+	};
+	// fin ne pas changer
+	class missionInfo
+	{
+		authors[] = {"Mr H."}; //changer avec votre pseudo
+		missionPicture = "media\img\deltasmall.jpg"; //image "poster" de la mission (celle que vous utilisez dans les attributs pour le chargement)
+		authorsLogos[]={MEMBERLOGO(MRH)}; // sont disponibles: ANT (anto), BLKH (BlackHawk) KMI,FRED,KWOIN, LDJ (Ledjean) MANU,NIAK,RAVEN,SAJ(sajkhearn),RED1 (Redbelette),TILK
+		date[] = {11,11,19}; // date de la dernière maj jj,mm,aa
+		versionStr = "1.0.0"; // changer au fur et à mesure des majs
+	};
 
+};
 // =============CFG======================================================
 
 /////=========cfgNotifications=====
@@ -50,5 +69,7 @@ class Extended_PostInit_EventHandlers
 };
 
 #include "cfgMRHTargets.hpp"
+#include "cfgMRHpunishments.hpp"
 #include "interfaces\choosedeathscheme.hpp"
+
 disableChannels[] = {0,1,2,4,5};

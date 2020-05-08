@@ -1,6 +1,32 @@
 waitUntil {alive player};
 _respawnScheme = missionNamespace getVariable ["TGV_DEVGRU_RespawnScheme","NormalRespawn"];
-if (_respawnScheme == "NormalRespawn") exitWith {};
+if (_respawnScheme == "NormalRespawn") exitWith {
+		player setPosATL (getPosATL respawn_west);
+	removeAllWeapons player;
+	removeGoggles player;
+	removeHeadgear player;
+	removeVest player;
+	removeUniform player;
+	removeAllAssignedItems player;
+	clearAllItemsFromBackpack player;
+	removeBackpack player;
+	player setUnitLoadout(player getVariable["Saved_Loadout",[]]);
+	BIS_fnc_feedback_allowPP = false;
+
+					[true] call acre_api_fnc_setSpectator;
+						["exitSpect", "onEachFrame", {
+
+						if (inputAction "ReloadMagazine" > 0) exitWith { 
+						["Terminate"] call BIS_fnc_EGSpectator; 
+						[false] call acre_api_fnc_setSpectator;
+						BIS_fnc_feedback_allowPP = true;
+						["exitSpect", "onEachFrame"] call BIS_fnc_removeStackedEventHandler; //  Remove the stackedEventHandler as we no longer need it
+						};
+						}] call BIS_fnc_addStackedEventHandler;
+					["Initialize", [player, [side player], false, true, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
+					hintSilent "Appuyez sur R pour quitter le mode spectateur";
+	
+};
 if (_respawnScheme == "RTBRespawn") exitWith {call MRH_fnc_RTBRespawn;};
 if (_respawnScheme == "BodyBagRespawn") exitWith {};
 if (_respawnScheme == "ReturnPlayerToBase") exitWith {

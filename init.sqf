@@ -20,7 +20,11 @@ f_script_briefing = [] execVM "briefing.sqf";
 [] execVM "CoreScripts\briefing\f_loadoutNotes.sqf";
 //génére les guides TGV
 0= execVM "CoreScripts\briefing\guidesetinfos.sqf";
+//----initialise les loadouts ace par défaut
+[] execVM "initAceLoadOuts.sqf";
 //InitialiseLesVariablesDudecomptedesmorts
+//--crée la table des radios 
+[] execVM "radioTable.sqf";
 
 //========FIN=CORE=SCRIPTS================
 
@@ -33,7 +37,7 @@ MISSION_ROOT = call {
     _arr resize (count _arr - 8);
     toString _arr
 };
-execVM "slides.sqf";
+
 
 //acre_sys_signal_showSignalHint = true;
 /*

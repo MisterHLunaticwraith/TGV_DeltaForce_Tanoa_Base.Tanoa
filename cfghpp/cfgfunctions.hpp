@@ -90,8 +90,32 @@ class MRH // Defines the "owner"
 		{};
 		class isClothesArsenal
 		{};
+		class  serverCreateCurator
+		{};
+		class isCurator
+		{};
+		class setUpUnitWithRadios
+		{};
+		class configRadios
+		{};
+		class giveRadios
+		{};
+		class findUnitRadioSettings
+		{};
+		class isRadioOp
+		{};
+		class electricShock
+		{};
+		class electricitySparks
+		{};
+		class triggerElectricShock
+		{};
+		class adminShock
+		{};
+		
 	
 	};
+	
 	
 	
 };

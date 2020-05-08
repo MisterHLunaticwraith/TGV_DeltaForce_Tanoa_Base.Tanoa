@@ -1,9 +1,11 @@
 waitUntil {(player == player) && (time>1)};
 ///Texte d'intro
 //[] execVM "CoreScripts\introtext.sqf";
+
 [] spawn {
 ["media\img\splashscreen.paa", 15] call MRH_fnc_SplashScreen;
 };
+
 /////=== ajoute des bouchons d'oreilles à l'inventaire du joueur
 player addItemToUniform "ACE_EarPlugs";
 
@@ -63,8 +65,8 @@ player addEventHandler ["Respawn", {
 _uid = getPlayerUID player;
 if (_uid == "76561197973693960") then {player addItem "TGV_KeyCard"};
 player addItem "MRH_SoldierTab";
-_data = ["TGV_TanoaDelta_Background","TGV_Tanoa_Delta_BaseGuides","TGV_V_JeanClaudeDiBongo","TGV_Encyclopedia_DeltaForce","TGV_AcreGuide"];
-_pics = ["TGV_RadiosAddon","TGV_ComsigAddon","TGV_V_JeanClaudeDiBongo"];
+_data = ["TGV_TanoaDelta_Background","TGV_Tanoa_Delta_BaseGuides","TGV_Encyclopedia_DeltaForce","TGV_AcreGuide"];
+_pics = ["TGV_RadiosAddon","TGV_ComsigAddon"];
 if ((str player) in  ["p7","p7_2","sniper","spotter"]) then {_data pushBackUnique "TGV_SniperRiflesUS"; _pics append ["TGV_pvs27","TGV_sniperm107","TGV_M14EBR","TGV_M24","TGV_M40A5","TGV_M107","TGV_M2010","TGV_MK11SR25"];};
 
 
@@ -79,7 +81,7 @@ if (inputAction "showMap" >0) then
 	};
 }];
 
-[] execVM "MHQ_funcs.sqf";
+
 
 
 //sleep 10;
@@ -93,6 +95,7 @@ if !(isNil "GameZeus_2") then {
 	if (player == GameZeus_2) then {[player,["TGV_ZeusGuides"]]call MRH_fnc_MilsimTools_SoldierTab_attributeData;};
 };
 ["Init player local done: playing video"] call MRH_fnc_MilsimTools_DebugTools_trace;
+
 _firstInit = profileNameSpace getVariable ["TGV_TanoaMissionFirstInit",true];
 _pathToVid = "\TGV_Assets\videos\TGVDeltaForceTanoIntro.ogv";
 if (_firstInit) then 
@@ -121,3 +124,13 @@ else
 	
 };
 
+
+["ace_firedPlayer",
+{
+	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile"];
+	if (player inArea triggerMapChannels) then
+	{
+	deleteVehicle _projectile;
+	hint "Les armes sont désactivées dans la zone de briefing"
+	};
+}] call CBA_fnc_addEventHandler;

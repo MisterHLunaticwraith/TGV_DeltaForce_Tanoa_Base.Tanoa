@@ -130,7 +130,7 @@ _positions = [
 			
 			
     	];
-if (staticQ getVariable ["MRH_HQ_HQisDeployed",false]) then {
+if (staticQ getVariable ["MRH_MOBsource_MOBsourceisDeployed",false]) then {
 _positions pushBackUnique [
     			position staticQ,
     			{player setPos (staticQ modelToWorld [0,-4,0])},

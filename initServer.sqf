@@ -25,3 +25,15 @@ if(!isServer) exitWith {};
 Diag_log format ["bodybag target %1", _target];
 [str _target,_bodybag] spawn MRH_fnc_placedInBodyBag;
 }] call CBA_fnc_addEventHandler;
+[zomega,["TGV_V_JeanClaudeDiBongo"]] call MRH_fnc_MilsimTools_SoldierTab_attributeData;
+[zomega,["TGV_V_JeanClaudeDiBongo","TGV_1_Situation","TGV_2_Mission","TGV_3_Execution","TGV_4_Personnels","TGV_5_PointsParticuliers"]] call MRH_fnc_MilsimTools_SoldierTab_attributePictures;
+private _handle = [
+	{
+		params ["_proj"];
+		["TGV_VideoProj",_proj]call MRH_fnc_MilsimTools_Core_playSound3Dlocal;
+	},
+	[videoProj],
+	{},
+	{params ["_proj"];(alive _proj && _proj getVariable ["TGV_projIsOn",true])},
+	7
+]call MRH_fnc_MilsimTools_Core_conditionalPFEH;

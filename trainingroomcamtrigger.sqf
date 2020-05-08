@@ -4,7 +4,7 @@ params ["_SourceObject","_spreadDistance"];
 waitUntil {player == player};
 params ["_SourceObject","_spreadDistance"];
 _trg = createTrigger ["EmptyDetector", getPos _SourceObject, false];
-_trg setTriggerArea [_spreadDistance, _spreadDistance, 0, false];
+_trg setTriggerArea [_spreadDistance, _spreadDistance, 0, false,5];
 _trg setTriggerActivation ["VEHICLE", "PRESENT", true];
 _trg triggerAttachVehicle [player];
 _trg setTriggerStatements ["this", 

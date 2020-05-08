@@ -200,4 +200,3 @@ MRH_fnc_isDeployableContainer =
 		////
 		[_HQ, 0, ["ACE_MainActions"], _actionRP] call ace_interact_menu_fnc_addActionToObject;
 };
-[staticQ] call MRH_fnc_isDeployableContainer;

@@ -470,13 +470,14 @@ force L_Suppress_recovery = 1;
 
 // MRH_MilsimTools - CAS Suppport
 force MRH_MilsimTools_FireSupport_CAS_ConditionIsFormLeader = true;
-force MRH_MilsimTools_FireSupport_CAS_CustomCondition = "[player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
+force MRH_MilsimTools_FireSupport_CAS_CustomCondition = "[MRH_player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
 force MRH_MilsimTools_FireSupport_CAS_isCustomConditionSet = true;
 force MRH_MilsimTools_FireSupport_CASPlanesBluFor = "rhsusf_f22,RHS_A10,B_UAV_02_dynamicLoadout_F";
 force MRH_MilsimTools_FireSupport_CASPlanesInde = "";
 force MRH_MilsimTools_FireSupport_CASPlanesOpFor = "";
-force MRH_MilsimTools_FireSupport_CASShots = "5";
+force MRH_MilsimTools_FireSupport_CASShots = "-1";
 force MRH_MilsimTools_FireSupport_useCASSupport = true;
+force MRH_MilsimTools_CAS_DelayBetween = 600;
 
 // MRH_MilsimTools - Core settings
 MRH_MilsimTools_AdminCasualtiesCap = 60;
@@ -487,6 +488,8 @@ force MRH_MilsimTools_PlayIntro_ToPlayer = true;
 force MRH_MilsimTools_ResetHasDiedOnRespawn = false;
 force MRH_MilsimTools_Rmv_map_nolead = true;
 force MRH_MilsimTools_ShowAdminDeadHint = true;
+force MRH_MilsimTools_Core_ApplyMedicPatch = true;
+force MRH_MilsimTools_hideAceMyLoadOuts = true
 
 // MRH_MilsimTools - Debug Mode
 MRH_MilsimTools_DebugTools_isDebugMode = false;
@@ -498,11 +501,12 @@ force MRH_MilsimTools_Map_ZoomRatio = 0.05;
 
 // MRH_MilsimTools - Fire Suppport
 force MRH_MilsimTools_FireSupport_ArtyMagazines = "RHS_mag_m1_he_12,rhs_mag_m60a2_smoke_4,8Rnd_82mm_Mo_Flare_white,rhs_12Rnd_m821_HE,rhs_mag_155mm_m795_28,rhs_mag_155mm_m825a1_2,rhs_mag_155mm_485_2,rhs_mag_155mm_m864_3,rhs_mag_155mm_raams_1";
-force MRH_MilsimTools_FireSupport_ArtyShots = "15";
+force MRH_MilsimTools_FireSupport_ArtyShots = "-1";
 force MRH_MilsimTools_FireSupport_ConditionIsFormLeader = true;
-force MRH_MilsimTools_FireSupport_CustomCondition = "[player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
+force MRH_MilsimTools_FireSupport_CustomCondition = "[MRH_player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
 force MRH_MilsimTools_FireSupport_isCustomConditionSet = true;
 force MRH_MilsimTools_FireSupport_useFireSupport = true;
+force MRH_MilsimTools_Arty_DelayBetween = 60;
 
 // MRH_MilsimTools - Hacking settings
 force MRH_MilsimTools_RequireHackingTool = true;
@@ -522,7 +526,7 @@ force MRH_MilsimTools_BluForHelis = "RHS_CH_47F,RHS_MELB_MH6M,RHS_UH60M,RHS_UH60
 force MRH_MilsimTools_BluForInde = "LOP_AA_Mi8MT_Cargo,LOP_AA_Mi24V_UPK23,LOP_AA_MH9_armed";
 force MRH_MilsimTools_BluForOpFor = "LOP_ChDKZ_Mi8MT_Cargo";
 force MRH_MilsimTools_Heli_ConditionIsFormLeader = false;
-force MRH_MilsimTools_Heli_CustomCondition = "[player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
+force MRH_MilsimTools_Heli_CustomCondition = "[MRH_player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
 force MRH_MilsimTools_Heli_isCustomConditionSet = true;
 MRH_MilsimTools_Heli_NumberSimulTPerSide = "3";
 force MRH_MilsimTools_Heli_UseHeliTaxiInMission = true;
@@ -548,9 +552,9 @@ force MRH_MilsimTools_Roster_ShowAIgroups = false;
 force MRH_MilsimTools_Roster_ShowAiWithinGrps = false;
 
 // MRH_MilsimTools - Supply drops
-force MRH_MilsimTools_FireSupport_NumberOfSuppliesDrops = "3";
+force MRH_MilsimTools_FireSupport_NumberOfSuppliesDrops = "-1";
 force MRH_MilsimTools_FireSupport_Supplies_ConditionIsFormLeader = false;
-force MRH_MilsimTools_FireSupport_Supplies_CustomCondition = "[player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
+force MRH_MilsimTools_FireSupport_Supplies_CustomCondition = "[MRH_player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio";
 force MRH_MilsimTools_FireSupport_Supplies_DistanceForAircraft = "3000";
 force MRH_MilsimTools_FireSupport_Supplies_isCustomConditionSet = true;
 force MRH_MilsimTools_FireSupport_Supplies_ListOfAvailableSupplies = "ACE_medicalSupplyCrate_advanced,rhsusf_mrzr4_d,rhsusf_spec_weapons_crate,rhsusf_launcher_crate,ACE_Box_82mm_Mo_Combo,TGV_FoodSuppliesCrate";
@@ -558,9 +562,14 @@ force MRH_MilsimTools_FireSupport_Supplies_useSupplyDrops = true;
 force MRH_MilsimTools_FireSupport_SupplyPlanesBluFor = "RHS_C130J,RHS_CH_47F";
 force MRH_MilsimTools_FireSupport_SupplyPlanesInde = "I_Heli_Transport_02_F,I_Heli_light_03_unarmed_F,I_C_Plane_Civil_01_F";
 force MRH_MilsimTools_FireSupport_SupplyPlanesOpFor = "O_T_VTOL_02_vehicle_dynamicLoadout_F,O_Heli_Light_02_unarmed_F,O_Heli_Transport_04_box_F";
+force MRH_MilsimTools_SupplyDrop_DelayBetween = 1800;
+
 
 // MRH_MilsimTools - Tablet settings
-MRH_MilsimTools_AllowMapTablet = true;
+force force MRH_MilsimTools_AllowMapTablet = false;
+force force MRH_MilsimTools_ST_BriefingRemote_overlay = "bandeauNewsTGV_ca.paa";
+force force MRH_MilsimTools_ST_BriefingRemote_videosToPlay = "\TGV_Assets\videos\TGVDeltaForceTanoIntro.ogv,\TGV_Assets\videos\TGV.ogv";
+
 
 // MRHSatellite Options
 MRH_SAT_allowFullscreen = true;
@@ -642,9 +651,16 @@ force rhs_faction_vvs = false;
 force rhs_faction_vvs_c = false;
 force TGV_SeaVehicles = true;
 
+// MRH_Milsim Tools - RHS CBPS
+force MRH_MT_RHSCBPS_globalComp = "None";
+force MRH_MT_RHSCBPS_useGlobal = false;
 
 // RÃ©glages TGV
 TGV_WelcomeMenuText = "<img size = '15' image ='\TGV_Assets\paa\armaOpBack.paa'/>Bienvenue sur le serveur de la Team TGV <br />______________________________________<br />Merci de rester courtois et fairplay.<br /><br />Pour un meilleur fonctionnement du serveur, ne laissez pas trainer vos objets au sol, laissez les dans l'arsenal ou dans un inventaire.<br /><br />L'utilisation de teamspeak est obligatoire pour ACRE2<br /><br /><t colorLink='#ff0000'><a href='tgv.ovh'>TeamSpeak</a></t>: tgv.ovh<br /><br />Il est interdit de parler dans le chat, sauf pour rapporter un problÃ¨me technique ou reporter un mauvais comportement.<br />______________________________________<br /><t colorLink='#ff0000'><a href='http://www.teamtgv.com/'>TeamTGV</a></t><br />______________________________________<br /><t colorLink='#ff0000'><a href='https://www.twitch.tv/lunaticwraith'>Twitch Mr.H</a></t><br /><br /><t colorLink='#ff0000'><a href='https://www.twitch.tv/wtf_redbelette'>Twitch RedBelette</a></t>";
+force TGV_DisablePatch = false;
+force TGV_DisablePatchOnlyMedic = true;
+
+
 // Achilles - Available Factions
 force Achilles_var_BLU_CTRG_F = false;
 force Achilles_var_BLU_F = false;
@@ -692,7 +708,7 @@ force Achilles_var_OPF_V_F = false;
 force Achilles_var_rhs_faction_insurgents = false;
 force Achilles_var_rhs_faction_msv = true;
 force Achilles_var_rhs_faction_rva = true;
-force Achilles_var_rhs_faction_socom = false;
+force Achilles_var_rhs_faction_socom = true;
 force Achilles_var_rhs_faction_tv = true;
 force Achilles_var_rhs_faction_usaf = true;
 force Achilles_var_rhs_faction_usarmy = true;
@@ -708,3 +724,24 @@ force Achilles_var_rhs_faction_vv = true;
 force Achilles_var_rhs_faction_vvs = true;
 force Achilles_var_rhs_faction_vvs_c = true;
 force Achilles_var_Virtual_F = false;
+
+// MRH_MilsimTools - MEDEVAC
+force MRH_MilsimTools_MEDEVAC_BluFor = "RHS_MELB_MH6M,RHS_UH60M_MEV,RHS_CH_47F";
+force MRH_MilsimTools_MEDEVAC_Civs = "rhs_uh1h_un,rhsgref_un_Mi8amt";
+force MRH_MilsimTools_MEDEVAC_ConditionIsFormLeader = false;
+force MRH_MilsimTools_MEDEVAC_CustomCondition = "([MRH_player, 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio)";
+force force MRH_MilsimTools_MEDEVAC_DelayBetween = 1800;
+force MRH_MilsimTools_MEDEVAC_ESCORT_BluFor = "RHS_AH64D_wd";
+force MRH_MilsimTools_MEDEVAC_ESCORT_BluForCivs = "C_Heli_Light_01_civil_F";
+force MRH_MilsimTools_MEDEVAC_ESCORT_Inde = "LOP_PMC_MH9_armed";
+force MRH_MilsimTools_MEDEVAC_ESCORT_OpFor = "RHS_Ka52_vvs";
+force MRH_MilsimTools_MEDEVAC_Inde = "LOP_PMC_Mi8AMT,rhs_uh1h_un,LOP_PMC_MH9";
+force MRH_MilsimTools_MEDEVAC_isCustomConditionSet = true;
+force MRH_MilsimTools_MEDEVAC_MEDICCLASS_BluFor = "rhsusf_army_ocp_arb_medic";
+force MRH_MilsimTools_MEDEVAC_MEDICCLASS_Civs = "C_Man_Paramedic_01_F";
+force MRH_MilsimTools_MEDEVAC_MEDICCLASS_Inde = "LOP_PMC_Infantry_Corpsman";
+force MRH_MilsimTools_MEDEVAC_MEDICCLASS_ItemsCall = "ACE_HandFlare_Red,SmokeShellOrange,rhs_mag_an_m8hc,rhs_mag_rdg2_white,rhs_mag_m18_green,rhs_mag_m18_purple,rhs_mag_m18_red";
+force MRH_MilsimTools_MEDEVAC_MEDICCLASS_OpFor = "rhsgref_tla_medic";
+force MRH_MilsimTools_MEDEVAC_OpFor = "RHS_Mi8mt_vvs,rhs_ka60_grey";
+force MRH_MilsimTools_MEDEVAC_timeToReachLZ = 600;
+force MRH_MilsimTools_MEDEVAC_UseMedEVACInMission = true;
